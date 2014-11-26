@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--  setting in project arguments what is the default target
+	and name of the project-->
+<project default="run" name="Ant Tutorial lesson 2 - compile and run">
+	<!-- setting target name and dependency that will be run first -->
+	<target name="run" depends="compile">
+		<echo>Running classes</echo>
+		<!-- running class -->
+		<java classname="com.tompok.javaant.HelloWorldAnt">
+			<!-- class path directory -->
+			<classpath path="target" />
+		</java>
+	</target>
+	<!-- setting target to compile classes -->
+	<target name="compile">
+		<echo>Compiling classes...</echo>
+		<!-- setting source firectory and destination folder -->
+		<javac includeantruntime="false" srcdir="./src" destdir="target"/>
+	</target>
+</project>

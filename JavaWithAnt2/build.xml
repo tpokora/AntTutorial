@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project default="run" name="Ant Tutorial lesson 2 - java + JUnit ant build">
+
+	<target name="run" depends="runjunit">
+		<echo>Running classes...</echo>
+		<java classname="com.tompok.javaant.Multiplication">
+			<classpath path="target" />
+		</java>
+	</target>
+	
+	<!-- junit test build -->
+	<target name="runjunit" depends="compile">
+		<echo>Running tests...</echo>
+		<junit printsummary="yes">
+			<test name="com.tompok.javaant.MultiplicationTest" />
+			<classpath>
+				<!-- JUnit & Hamcrest classpath  -->
+				<pathelement location="lib/junit-4.11.jar" />
+				<pathelement location="lib/hamcrest-core-1.3.jar" />
+				<pathelement location="target" />
+			</classpath>
+			<formatter type="xml" />
+		</junit>
+		
+		<!-- JUnit reports -->
+		<junitreport todir=".">
+			<fileset dir=".">
+				<include name="TEST-*.xml" /> 
+			</fileset>
+			<report todir="." />
+		</junitreport>
+	</target>
+	
+	<target name="compile">
+		<echo>Compiling classes...</echo>
+		
+		<!-- Instead of srcdir attribute
+			 src path element for multiple source folders
+			 classpath for JUnit library -->
+		<javac includeantruntime="false" destdir="target">
+			<classpath>
+				<!-- JUnit & Hamcrest classpath  -->
+				<pathelement location="lib/junit-4.11.jar" />
+				<pathelement location="lib/hamcrest-core-1.3.jar" />
+			</classpath>
+			<src path="./src" />
+			<src path="./test" />
+		</javac>
+	</target>
+</project>

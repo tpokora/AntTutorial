@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project default="warTarget" name="warTarget" basedir=".">
+	<!-- Setting properties of directories -->
+	<property name="jboss" value="/home/mayon/Server/jboss-as-7.1.1.Final" />
+	<property name="jboss.deployment" value="${jboss}/standalone/deployments" />
+	<property name="jboss.bin" value="${jboss}/bin" />
+	<property name="base" value="." />
+	<property name="source" value="${base}/src" />
+	
+	<!-- warTarget - creates war file and calls ant target
+		 and runs JBoss server and deploys application -->
+	<target name="warTarget">
+		<war warfile="ant3.war" needxmlfile="false">
+			<fileset dir="${source}/webfiles/" />
+		</war>
+		<antcall target="deployTarget" />
+	</target>
+	
+	<!-- Deploys war file into JBoss server 
+		 by copying it to deployments folder -->
+	<target name="deployTarget">
+		<copy file="${base}/ant3.war" todir="${jboss.deployment}" />
+		<antcall target="startJBoss" />
+	</target>
+	
+	<target name="startJBoss">
+		<exec executable="/bin/bash" failonerror="true" osfamily="unix">
+			<arg value="/home/mayon/Server/jboss-as-7.1.1.Final/bin/standalone.sh" />
+		</exec>	
+	</target>
+</project>
