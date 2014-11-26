@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
-<title>Ant Tutorial 4</title>
+<title>IAnt Tutorial 4</title>
 </head>
 <body>
-	<h2>War and Deploy with Ant - JBoss</h2>
+	<h2>War and deploy to tomcat - Tomcat</h2>
 </body>
 </html>

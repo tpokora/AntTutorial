@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ 	xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee" 
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee 
+		http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" 
+	id="WebApp_ID" version="3.1">
+  <display-name>JavaWithAnt5WebTomcat</display-name>
+  <servlet>
+  	<servlet-name>Tomcat Servlet</servlet-name>
+  	<jsp-file>/tomcat.jsp</jsp-file>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>Tomcat Servlet</servlet-name>
+  	<url-pattern>/tomcat</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>HelloServlet</servlet-name>
+  	<jsp-file>/hello.jsp</jsp-file>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>HelloServlet</servlet-name>
+  	<url-pattern>/hello</url-pattern>
+  </servlet-mapping>
+</web-app>
